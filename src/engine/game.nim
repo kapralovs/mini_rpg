@@ -1,5 +1,13 @@
 import strutils
 
+proc showTitle()=
+  #Here must be the title (like "miniRPG")
+  echo "-----------------------------"
+  echo "| Hello, stranger!          |"
+  echo "| Welcome to mini RPG game! |"
+  echo "-----------------------------"
+  echo ""
+
 proc newGame*()=
   echo "What is your name?"
   let name = readLine(stdin)
@@ -12,11 +20,7 @@ proc gotGames(): bool=
   return states.len()>0
 
 proc run*()=
-  #Here must be the title (like "miniRPG")
-  echo "-----------------------------"
-  echo "| Hello, stranger!          |"
-  echo "| Welcome to mini RPG game! |"
-  echo "-----------------------------"
+  showTitle()
 
   if gotGames():
     echo "got saved games"
