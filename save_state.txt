@@ -1,3 +1,0 @@
-Location=cave
-HP=100
-Lvl=1
