@@ -15,8 +15,15 @@ type
     Experience: int
     Power: int
 
-var p=Person(Name: "Hero")
+var p=Person(
+  Health:100,
+  Experience:0,
+  Power: 1,
+)
+
+echo "Введите имя персонажа:"
+p.Name=readLine(stdin)
 
 discard execShellCmd("clear") # execute "clear" shell command
 
-echo p.Name
+echo("Добро пожаловать в мир иной, ", p.Name)
