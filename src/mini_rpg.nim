@@ -1,29 +1,31 @@
-# This is just an example to get you started. A typical binary package
-# uses this file as the main entry point of the application.
+## Точка входа: приветствие и сюжетный цикл.
 
-# when isMainModule:
-#   echo("Hello, World!")
+import std/random
 
-import std/os
+import mini_rpg/types
+import mini_rpg/scenes
+import mini_rpg/ui
 
-echo "Welcome to Mini RPG"
+proc main() =
+  randomize()
+  clearScreen()
+  echo line('=')
+  echo "  MINI RPG"
+  echo line('=')
+  echo ""
+  echo "Ты не помнишь, как здесь оказался."
+  echo "Помнишь только холод камня и чей-то смех в темноте."
+  echo ""
+  let name = readName("Как тебя зовут? ")
+  var game = Game(player: newPlayer(name))
+  echo ""
+  echo "Что ж, ", name, ". Начнём."
 
-type
-  Person=object
-    Name: string
-    Health: int
-    Experience: int
-    Power: int
+  game.caveScene()
+  game.roadScene()
+  while true:
+    game.cityScene()
+    game.castleScene()
 
-var p=Person(
-  Health:100,
-  Experience:0,
-  Power: 1,
-)
-
-echo "Введите имя персонажа:"
-p.Name=readLine(stdin)
-
-discard execShellCmd("clear") # execute "clear" shell command
-
-echo("Добро пожаловать в мир иной, ", p.Name)
+when isMainModule:
+  main()
