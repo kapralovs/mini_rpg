@@ -1,0 +1,5 @@
+/mini_rpg
+/tests/test_game
+/tools/balance_check
+nimcache/
+*.o
