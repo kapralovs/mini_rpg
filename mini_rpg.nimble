@@ -10,4 +10,7 @@ bin           = @["mini_rpg"]
 
 # Dependencies
 
-requires "nim >= 2.2.0"
+requires "nim >= 1.6.6"
+
+task test, "Запускает тесты игры":
+  exec "nim c -r --hints:off --path:src tests/test_game.nim"
